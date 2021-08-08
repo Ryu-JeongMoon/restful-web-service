@@ -43,5 +43,7 @@ public class UserDaoService {
         return user.getId();
     }
 
-
+    public boolean deleteById(Long id) {
+        return users.removeIf(user -> (user.getId() == id));
+    }
 }
