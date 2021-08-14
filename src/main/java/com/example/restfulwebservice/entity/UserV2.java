@@ -1,8 +1,6 @@
 package com.example.restfulwebservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,20 +15,9 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonFilter("UserInfo")
-public class User {
+@JsonFilter("UserInfoV2")
+public class UserV2 extends User{
 
-    private Long id;
-
-    @Size(min = 2, message = "enter name at least 2 letters")
-    private String name;
-
-    @Past
-    private LocalDateTime joinDate;
-
-    //@JsonIgnore
-    private String password;
-
-    private String ssn;
+    private String grade;
 
 }

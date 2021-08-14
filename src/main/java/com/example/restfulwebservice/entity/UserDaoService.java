@@ -1,7 +1,6 @@
 package com.example.restfulwebservice.entity;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,9 +14,9 @@ public class UserDaoService {
     private static long userCount = 3;
 
     static {
-        users.add(new User(1L, "hellen", LocalDateTime.now()));
-        users.add(new User(2L, "michelle", LocalDateTime.now()));
-        users.add(new User(3L, "pear", LocalDateTime.now()));
+        users.add(new User(1L, "hellen", LocalDateTime.now(), "pass1", "701010-1111111"));
+        users.add(new User(2L, "michelle", LocalDateTime.now(), "pass2", "701010-2222222"));
+        users.add(new User(3L, "pear", LocalDateTime.now(), "pass3", "701010-3333333"));
     }
 
     public List<User> findAll() {
@@ -36,7 +35,7 @@ public class UserDaoService {
             user.setId(++userCount);
 
         for (User _user : users) {
-            if(user.getId() == _user.getId())
+            if (user.getId() == _user.getId())
                 throw new RuntimeException("아이디 중복");
         }
 
