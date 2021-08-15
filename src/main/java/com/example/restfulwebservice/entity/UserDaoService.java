@@ -14,9 +14,32 @@ public class UserDaoService {
     private static long userCount = 3;
 
     static {
-        users.add(new User(1L, "hellen", LocalDateTime.now(), "pass1", "701010-1111111"));
-        users.add(new User(2L, "michelle", LocalDateTime.now(), "pass2", "701010-2222222"));
-        users.add(new User(3L, "pear", LocalDateTime.now(), "pass3", "701010-3333333"));
+        users.add(User.builder()
+                      .id(1L)
+                      .name("hellen")
+                      .joinDate(LocalDateTime.now())
+                      .password("pass1")
+                      .ssn("701010-1111111")
+                      .posts(null)
+                      .build());
+
+        users.add(User.builder()
+                      .id(2L)
+                      .name("michelle")
+                      .joinDate(LocalDateTime.now())
+                      .password("pass2")
+                      .ssn("701010-2222222")
+                      .posts(null)
+                      .build());
+
+        users.add(User.builder()
+                      .id(3L)
+                      .name("kevin")
+                      .joinDate(LocalDateTime.now())
+                      .password("pass3")
+                      .ssn("701010-3333333")
+                      .posts(null)
+                      .build());
     }
 
     public List<User> findAll() {
